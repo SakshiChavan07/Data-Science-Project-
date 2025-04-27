@@ -5,7 +5,7 @@ import numpy as np
 
 # Load your saved model
 try:
-    model = pickle.load(open('Project.pkl', 'rb'))
+    model = pickle.load(open('Project (2).pkl', 'rb'))
     st.success('✅ Model loaded successfully!')
 except Exception as e:
     st.error(f"Error loading model: {e}")
