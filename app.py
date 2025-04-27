@@ -5,7 +5,7 @@ import numpy as np
 
 # Load your saved model
 try:
-    model = pickle.load(open('Project.pkl', 'rb'))
+    model = pickle.load(open('Project (2).pkl', 'rb'))
     st.success('✅ Model loaded successfully!')
 except Exception as e:
     st.error(f"Error loading model: {e}")
@@ -15,9 +15,9 @@ st.title('❤️ Heart Attack Risk Predictor')
 st.write('---')
 
 # Ideal healthy values (you can tweak these)
-ideal_age = 40
-ideal_heart_rate = 70
-ideal_blood_sugar = 90
+ideal_age = 40-60
+ideal_heart_rate = 60-100
+ideal_blood_sugar = 70-110
 
 # User input
 st.header('📝 Enter your details below:')
@@ -70,4 +70,4 @@ if st.button('🔮 Predict Risk'):
 
 # Footer
 st.write('---')
-st.caption('Built with ❤️ using Streamlit')
+st.caption('Built with ❤️ using Streamlit')                                                                                             
