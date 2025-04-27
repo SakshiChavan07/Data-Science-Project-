@@ -26,6 +26,10 @@ gender = st.selectbox('Select Gender', ['Male', 'Female'])
 heart_rate = st.number_input('Enter Heart Rate (bpm)', min_value=30, max_value=200, value=75)
 blood_sugar = st.number_input('Enter Blood Sugar (mg/dL)', min_value=50, max_value=300, value=100)
 
+# Additional input for blood pressure (not used in prediction)
+systolic_blood_pressure = st.number_input('Enter Systolic Blood Pressure (mmHg)', min_value=50, max_value=250, value=120)
+diastolic_blood_pressure = st.number_input('Enter Diastolic Blood Pressure (mmHg)', min_value=30, max_value=150, value=80)
+
 # Create input data for prediction - only include the features expected by the model
 input_data = [[age, heart_rate, blood_sugar]]  # Only 3 features: age, heart_rate, and blood_sugar
 
