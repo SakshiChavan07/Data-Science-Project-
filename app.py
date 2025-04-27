@@ -55,7 +55,7 @@ if st.button('🔮 Predict Risk'):
 
     categories = ['Heart Rate', 'Blood Sugar']
     user_values = [heart_rate, blood_sugar]
-    ideal_values = [ideal_heart_rate, ideal_blood_sugar]
+    ideal_values = [ideal_heart_rate[0], ideal_blood_sugar[0]]  # Use scalar values, not ranges
 
     y_pos = np.arange(len(categories))
     bar_width = 0.35
