@@ -21,9 +21,9 @@ ideal_blood_sugar_range = (70, 110)         # mg/dL
 # User input with emojis to make it fun ✨
 st.header('📝 Enter Patient Details:')
 
-age = st.number_input('👩‍⚕️ Age (years)', min_value=1, max_value=120, value=00)
-heart_rate = st.number_input('💓 Heart Rate (bpm)', min_value=30, max_value=200, value=00)
-blood_sugar = st.number_input('🍬 Blood Sugar (mg/dL)', min_value=50, max_value=300, value=00)
+age = st.number_input('👩‍⚕️ Age (years)', min_value=1, max_value=120, value=30)
+heart_rate = st.number_input('💓 Heart Rate (bpm)', min_value=30, max_value=200, value=75)
+blood_sugar = st.number_input('🍬 Blood Sugar (mg/dL)', min_value=50, max_value=300, value=100)
 
 # Prediction Button with a ✨ Predict emoji ✨
 if st.button('🔮 Predict Risk'):
