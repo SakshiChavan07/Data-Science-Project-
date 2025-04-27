@@ -15,9 +15,9 @@ st.title('❤️ Heart Attack Risk Predictor')
 st.write('---')
 
 # Ideal healthy values (you can tweak these)
-ideal_age = 40
-ideal_heart_rate = 70
-ideal_blood_sugar = 90
+ideal_age = 40 to 60
+ideal_heart_rate = 60 to 100
+ideal_blood_sugar = 70 to 110
 
 # User input
 st.header('📝 Enter your details below:')
