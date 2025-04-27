@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
-# Load the trained model (ensure it's in the same directory as your app.py)
+# Load the trained model
 try:
     model = pickle.load(open('Project (2).pkl', 'rb'))
     st.success('✅ Model loaded successfully!')
@@ -23,26 +23,14 @@ st.header('📝 Enter your details below:')
 age = st.number_input('Enter Age (years)', min_value=1, max_value=120, value=30)
 gender = st.selectbox('Select Gender', ['Male', 'Female'])
 heart_rate = st.number_input('Enter Heart Rate (bpm)', min_value=30, max_value=200, value=75)
-systolic_bp = st.number_input('Enter Systolic Blood Pressure (mmHg)', min_value=80, max_value=200, value=120)
-diastolic_bp = st.number_input('Enter Diastolic Blood Pressure (mmHg)', min_value=50, max_value=130, value=80)
 blood_sugar = st.number_input('Enter Blood Sugar (mg/dL)', min_value=50, max_value=300, value=100)
 
-# Create input data for prediction
-input_data = [[age, gender, heart_rate, systolic_bp, diastolic_bp, blood_sugar]]
+# Create input data for prediction - only include the features expected by the model
+input_data = [[age, heart_rate, blood_sugar]]  # Only 3 features: age, heart_rate, and blood_sugar
 
-# Encode gender as numerical values: Male = 0, Female = 1 (or any encoding used during model training)
-gender = 0 if gender == 'Male' else 1
-input_data[0][1] = gender  # Update gender in the input data
-
-# Feature Scaling
+# Feature Scaling (if the model was trained with scaled features)
 scaler = StandardScaler()
-
-# If the model was trained with scaling, ensure you scale the input data here
-# Fit the scaler on your dataset, and transform the input data
-try:
-    scaled_input_data = scaler.fit_transform(input_data)
-except Exception as e:
-    st.error(f"Error scaling input data: {e}")
+scaled_input_data = scaler.fit_transform(input_data)
 
 # Predict Button
 if st.button('🔮 Predict Risk'):
