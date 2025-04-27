@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
 # Load the trained model
@@ -59,18 +60,21 @@ if st.button('🔮 Predict Risk'):
     y_pos = np.arange(len(categories))
     bar_width = 0.35
 
-    fig, ax = plt.subplots()
+    # Create plot only if the data is valid
+    try:
+        fig, ax = plt.subplots(figsize=(8, 4))  # Set the figure size to avoid rendering issues
+        ax.barh(y_pos, user_values, bar_width, label='Your Values', color='skyblue')
+        ax.barh(y_pos + bar_width, ideal_values, bar_width, label='Ideal Values', color='lightgreen')
 
-    ax.barh(y_pos, user_values, bar_width, label='Your Values', color='skyblue')
-    ax.barh(y_pos + bar_width, ideal_values, bar_width, label='Ideal Values', color='lightgreen')
+        ax.set_yticks(y_pos + bar_width / 2)
+        ax.set_yticklabels(categories)
+        ax.set_xlabel('Values')
+        ax.set_title('Health Parameters Comparison')
+        ax.legend()
 
-    ax.set_yticks(y_pos + bar_width / 2)
-    ax.set_yticklabels(categories)
-    ax.set_xlabel('Values')
-    ax.set_title('Health Parameters Comparison')
-    ax.legend()
-
-    st.pyplot(fig)
+        st.pyplot(fig)  # Display the plot
+    except Exception as e:
+        st.error(f"Error during plot generation: {e}")
 
 # Footer
 st.write('---')
