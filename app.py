@@ -28,8 +28,8 @@ if st.button('Predict Risk'):
     else:
         st.success('✅ Low Risk! Stay Healthy!')
 
-!pip install streamlit
-!pip install pyngrok
+#!pip install streamlit
+#!pip install pyngrok
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
