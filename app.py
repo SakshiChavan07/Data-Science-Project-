@@ -6,7 +6,7 @@ import numpy as np
 
 # --- Load the trained ML model ---
 try:
-    model = pickle.load(open('Project.pkl', 'rb'))
+    model = pickle.load(open('project.pkl', 'rb'))
 except Exception as e:
     st.error(f"Error loading model: {e}")
     st.stop()
